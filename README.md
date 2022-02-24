@@ -1,61 +1,55 @@
 # Linux_monitoring
 Linux basic bash scripting and system research.
 
-## Part 1. Проба пера
+## Part 1
 
-Написать bash-скрипт. Скрипт запускается с одним параметром. Параметр текстовый.  
-Скрипт выводит значение параметра.  
-Если параметр - число, то должно выводится сообщение о некорректности ввода.
+Write a bash script. The script is activated with one parameter. Text parameter.
+The script outputs the value of the parameter.
+If the parameter is a number, then a message about the authorship of the input should be displayed.
 
-## Part 2. Исследование системы
+## Part 2
 
-**== Задание ==**
+Write a bash script. The script should display information in the form:
 
-Написать bash-скрипт. Скрипт должен вывести на экран информацию в виде:
+**HOSTNAME** = _hostname_
+**TIMEZONE** = _timezone in the form: **America/New_York UTC -5** (timezone, must be taken from the system and be correct for the current location)_
+**USER** = _current user who ran the script_
+**OS** = _type and version of operating system_
+**DATE** = _current time as: **12 May 2020 12:24:36**_
+**UPTIME** = _system uptime_
+**UPTIME_SEC** = _system uptime in seconds_
+**IP** = _ip address of the machine on any of the network interfaces_
+**MASK** = _network mask of any of the network interfaces in the form: **xxx.xxx.xxx.xxx**_
+**GATEWAY** = _ip of default gateway_
+**RAM_TOTAL** = _size of RAM in Gb with an accuracy of three decimal places in the form: **3.125 Gb**_
+**RAM_USED** = _size of used memory in GB with three decimal places_
+**RAM_FREE** = _size of free memory in GB with an accuracy of three decimal places_
+**SPACE_ROOT** = _size of the root partition in MB with a precision of two decimal places in the form: **254.25 MB**_
+**SPACE_ROOT_USED** = _the size of the used space of the root partition in Mb with a precision of two decimal places_
+**SPACE_ROOT_FREE** = _size of root partition in MB with two decimal places_
 
-**HOSTNAME** = _сетевое имя_  
-**TIMEZONE** = _временная зона в виде: **America/New_York UTC -5** (временная зона, должна браться из системы и быть корректной для текущего местоположения)_  
-**USER** = _текущий пользователь который запустил скрипт_  
-**OS** = _тип и версия операционной системы_  
-**DATE** = _текущее время в виде: **12 May 2020 12:24:36**_  
-**UPTIME** = _время работы системы_  
-**UPTIME_SEC** = _время работы системы в секундах_  
-**IP** = _ip-адрес машины в любом из сетевых интерфейсов_  
-**MASK** = _сетевая маска любого из сетевых интерфейсов в виде: **xxx.xxx.xxx.xxx**_  
-**GATEWAY** = _ip шлюза по умолчанию_  
-**RAM_TOTAL** = _размер оперативной памяти в Гб c точностью три знака после запятой в виде: **3.125 Gb**_  
-**RAM_USED** = _размер используемой памяти в Гб c точностью три знака после запятой_  
-**RAM_FREE** = _размер свободной памяти в Гб c точностью три знака после запятой_  
-**SPACE_ROOT** = _размер рутового раздела в Mб с точностью два знака после запятой в виде: **254.25 MB**_  
-**SPACE_ROOT_USED** = _размер занятого пространства рутового раздела в Mб с точностью два знака после запятой_  
-**SPACE_ROOT_FREE** = _размер рутового раздела в Mб с точностью два знака после запятой_
+After displaying the values, offer to write the data to a file (prompt the user to answer **Y/N**).
+Answers **Y** and **y** are considered positive, all others are negative.
+With the consent of the user, in the current directory, create a file containing the information that was displayed on the screen.
+The file name should look like this: **DD_MM_YY_HH_MM_SS.status** (The time in the file name should indicate when the data was saved).
 
-После вывода значений предложить записать данные в файл (предложить пользователю ответить **Y/N**).  
-Ответы **Y** и **y** считаются положительными, все прочие - отрицательными.
-При согласии пользователя, в текущей директории создать файл содержащий информацию, которая была выведена на экран.  
-Название файла должно иметь вид: **DD_MM_YY_HH_MM_SS.status** (Время в имени файла должно указывать момент сохранения данных).
+## Part 3
 
-## Part 3. Визуальное оформление вывода для скрипта исследования системы
-
-**== Задание ==**
-
-Написать bash-скрипт. За основу взять скрипт из [**Part 2**](#part-2-исследование-системы) и убрать из него часть, ответственную за сохранение данных в файл.  
-Скрипт запускается с 4 параметрами. Параметры числовые. От 1 до 6, например:  
+Write a bash script. Take the script from [**Part 2**](#part-2-system-exploration) as a basis and remove the part responsible for saving data to a file from it.
+The script is run with 4 parameters. The parameters are numeric. From 1 to 6, for example:
 `script03.sh 1 3 4 5`
 
-Обозначения цветов: (1 - white, 2 - red, 3 - green, 4 - blue, 5 – purple, 6 - black)  
-**Параметр 1** - это фон названий значений (HOSTNAME, TIMEZONE, USER и т.д.)  
-**Параметр 2** - это цвет шрифта названий значений (HOSTNAME, TIMEZONE, USER и т.д.)  
-**Параметр 3** - это фон значений (после знака '=')  
-**Параметр 4** - это цвет шрифта значений (после знака '=')
+Color designations: (1 - white, 2 - red, 3 - green, 4 - blue, 5 - purple, 6 - black)
+**Parameter 1** is the background of the value names (HOSTNAME, TIMEZONE, USER, etc.)
+**Parameter 2** is the font color of the value names (HOSTNAME, TIMEZONE, USER, etc.)
+**Parameter 3** is the background of the values (after the '=' sign)
+**Parameter 4** is the font color of the values (after the '=' sign)
 
-## Part 4. Конфигурирование визуального оформления вывода для скрипта исследования системы
+## Part 4
 
-**== Задание ==**
-
-Написать bash-скрипт. За основу берется скрипт из [**Part 3**](#part-3-визуальное-оформление-вывода-для-скрипта-исследования-системы). Обозначения цветов аналогичные.  
-Скрипт запускается без параметров. Параметры задаются в конфигурационном файле до запуска скрипта.  
-Конфигурационный файл должен иметь вид:
+Write a bash script. Based on the script from [**Part 3**](#part-3-visual-output-for-system-exploration-script). Color designations are similar.
+The script is run without parameters. The parameters are set in the configuration file before the script is launched.
+The configuration file should look like:
 ```
 column1_background=2
 column1_font_color=4
@@ -63,21 +57,19 @@ column2_background=5
 column2_font_color=1
 ```
 
-Если один или несколько параметров не заданы в конфигурационном файле, то цвет должен подставляться из цветовой схемы, заданной по умолчанию. (Выбор на усмотрение разработчика).
+If one or more parameters are not specified in the configuration file, then the color must be substituted from the default color scheme. (Choice at the discretion of the developer).
 
-## Part 5. Исследование файловой системы
+## Part 5
 
-**== Задание ==**
-
-Написать bash-скрипт. Скрипт запускается с одним параметром.  
-Параметр - это абсолютный или относительный путь до какой-либо директории. Параметр должен заканчиваться знаком '/', например:  
+Write a bash script. The script is launched with one parameter.
+The parameter is an absolute or relative path to some directory. The parameter must end with a '/', for example:
 `script05.sh /var/log/`
 
-Скрипт должен выводить следующую информацию о каталоге, указанном в параметре:
-- Общее число папок, включая вложенные
-- Топ 5 папок с самым большим весом в порядке убывания (путь и размер)
-- Общее число файлов
-- Число конфигурационных файлов (с расширением .conf), текстовых файлов, исполняемых файлов, логов (файлов с расширением .log), архивов, символических ссылок
-- Топ 10 файлов с самым большим весом в порядке убывания (путь, размер и тип)
-- Топ 10 исполняемых файлов с самым большим весом в порядке убывания (путь, размер и хеш)
-- Время выполнения скрипта
+The script should display the following information about the directory specified in the parameter:
+- Total number of folders including subfolders
+- Top 5 folders with the largest weight in descending order (path and size)
+- Total number of files
+- Number of configuration files (with .conf extension), text files, executable files, logs (files with .log extension), archives, symbolic links
+- Top 10 files with the largest weight in descending order (path, size and type)
+- Top 10 executables with the largest weight in descending order (path, size and hash)
+- Script execution time
